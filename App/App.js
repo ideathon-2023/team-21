@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text, View, StyleSheet, TextInput,ScrollView, SafeAreaView,StatusBar,Button,Alert, } from 'react-native'
 import React, { useState } from 'react'
 
+//Home Screen
 function HomeScreen(props) {
   return (
     <View style={styles.container} >
@@ -17,6 +18,8 @@ function HomeScreen(props) {
       </View>
   );
 }
+
+//Form for leave
 function Form() {
   const [name,setName] = useState('Yashaswi');
   const [sid,setsid] = useState('22106023');
@@ -90,7 +93,7 @@ function Form() {
       </SafeAreaView>
     );
   }
-
+//Navigation
 const Stack = createNativeStackNavigator();
 
 function App() {
@@ -116,7 +119,7 @@ function App() {
   );
 }
 
-
+//Style
 const styles = StyleSheet.create({
   container: {
     flex:1,
