@@ -123,9 +123,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#F2EAD3',
     alignItems: 'center',
     justifyContent: 'center',
-    // paddingTop: StatusBar.currentHeight,
-
-    // marginTop: 20,
   },
   input : {
     borderWidth:1,
@@ -158,19 +155,11 @@ const styles = StyleSheet.create({
     marginLeft: 110,
   },
   Main1:{
- width:100,
-//  margin:100
-// marginTop:550,
-// marginLeft:28
+  width:100,
 
   },
   Main2:{
- width:100,
-//  margin:100
-// marginTop:50,
-// marginLeft:200,
-
-
+  width:100,
 
   }
   }
