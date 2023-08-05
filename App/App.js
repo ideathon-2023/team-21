@@ -1,20 +1,27 @@
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Text, View, StyleSheet, TextInput,ScrollView, SafeAreaView,StatusBar,Button,Alert, } from 'react-native'
+import { Text, View, StyleSheet, TextInput,ScrollView, SafeAreaView,StatusBar,Button,Alert,TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 
 //Home Screen
 function HomeScreen(props) {
   return (
     <View style={styles.container} >
-      <Text>Home Screen</Text>
-      <View style={styles.Main1}>
-      <Button title='Fill the form' onPress={()=>props.navigation.navigate('Form')}color={'#3F2305'}/>
-      <View style={styles.Main2}>
-      <Button title='Status of the Form' onPress={()=>props.navigation.navigate('Form')}color={'#3F2305'}/>
+      <View style={styles.Idcard} >
+        <Text style={{fontSize: 24,color:'#D4ECDD'}}>Yashaswi Khurana</Text>
+        <Text style={{fontSize: 24,color:'#D4ECDD'}}>22106023</Text>
+        <Text style={{fontSize: 24,color:'#D4ECDD'}}>Data-Science</Text>
+        <Text style={{fontSize: 24,color:'#D4ECDD'}}>R.no: 21</Text>
+        <Text style={{fontSize: 24,color:'#D4ECDD'}}>7719417331</Text>
       </View>
-      </View>
+      <TouchableOpacity style={styles.Main1} onPress={()=>props.navigation.navigate('Form')}>
+        <Text style={{fontSize: 24,color:'#D4ECDD'}}>Fill The Form</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.Main2} onPress={()=>props.navigation.navigate('Form')}>
+        <Text style={{fontSize: 24,color:'#D4ECDD'}}>Check Approved forms</Text>
+      </TouchableOpacity>
+
       </View>
   );
 }
@@ -34,60 +41,82 @@ function Form() {
 
 
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container1}>
         <ScrollView style={styles.ScrollView}>
         <TextInput style={styles.input}
         placeholder='Enter Name'
+        placeholderTextColor={'#D4ECDD'}
         onChangeText={(val)=>setName(val)}/>
 
-        <TextInput style={styles.sid}
+        <TextInput style={styles.sid} 
         keyboardType='numeric'
         placeholder='Student id'
+        placeholderTextColor={'#D4ECDD'}
         onChangeText={(val2)=>setsid(val2)}/>
 
         <TextInput style={styles.input}
         placeholder='Branch'
+        placeholderTextColor={'#D4ECDD'}
         onChangeText={(val3)=>setbranch(val3)}/>
 
         <TextInput style={styles.input}
         placeholder='Room number'
+        placeholderTextColor={'#D4ECDD'}
         onChangeText={(val4)=>setrn(val4)}/>
 
         <TextInput style={styles.input}
         placeholder='Mobile number'
         keyboardType='numeric'
+        placeholderTextColor={'#D4ECDD'}
         onChangeText={(val5)=>setmn(val5)}/>
 
         <TextInput style={styles.input}
         placeholder='Pec mail-id'
+        placeholderTextColor={'#D4ECDD'}
         onChangeText={(val6)=>setpmi(val6)}/>
 
         <TextInput style={styles.reason}
         placeholder='Reason'
+        placeholderTextColor={'#D4ECDD'}
         onChangeText={(val7)=>setreason(val7)}/>
 
         <TextInput style={styles.input}
         placeholder='Address of visiting place'
+        placeholderTextColor={'#D4ECDD'}
         onChangeText={(val8)=>setavp(val8)}/>
 
         <TextInput style={styles.input}
         placeholder='Parents Mobile number'
         keyboardType='numeric'
+        placeholderTextColor={'#D4ECDD'}
         onChangeText={(val9)=>setpmn(val9)}/>
 
         <TextInput style={styles.input}
         placeholder='Date'
+        placeholderTextColor={'#D4ECDD'}
         onChangeText={(val10)=>setdate(val10)}/>
 
         <TextInput style={styles.input}
         placeholder='OTP'
+        placeholderTextColor={'#D4ECDD'}
         onChangeText={(val)=>setName(val)}/>
         <View style={styles.fixToText}>
-          <Button
+          {/* <Button
           title="Submit"
           onPress={() => Alert.alert('Your form has been submitted and is under process')}
-          color={'#3F2305'}
-        /></View>
+          color={'#152D35'} */}
+          <TouchableOpacity style={{
+            justifyContent:'center',
+            alignItems:'center',
+            borderWidth:0.5,
+            borderColor:'#D4ECDD',
+            marginBottom:10,
+            padding:8,
+            borderRadius:5,
+          }} onPress={() => Alert.alert('Your form has been submitted and is under process')}>
+        <Text style={{fontSize: 25,color:'#D4ECDD'}}>Submit</Text>
+      </TouchableOpacity>
+        </View>
         
         </ScrollView>
       </SafeAreaView>
@@ -102,13 +131,13 @@ function App() {
       <Stack.Navigator
       screenOptions={{
         headerStyle:{
-        backgroundColor:'#DFD7BF',
+        backgroundColor:'#112031',
       },
       headerTitleStyle:{
         fontWeight:'bold',
-        fontSize:50
+        fontSize:30
       },
-      headerTintColor:'#3F2305'
+      headerTintColor:'#D4ECDD'
         }} >
         <Stack.Screen name="Dormsavior" component={HomeScreen}
         
@@ -123,33 +152,41 @@ function App() {
 const styles = StyleSheet.create({
   container: {
     flex:1,
-    backgroundColor: '#F2EAD3',
+    backgroundColor: '#152D35',
+    alignItems: 'center',
+    // justifyContent: 'center',
+  },
+  container1: {
+    flex:1,
+    backgroundColor: '#152D35',
     alignItems: 'center',
     justifyContent: 'center',
   },
   input : {
     borderWidth:1,
-    borderColor:'#777',
-    padding:8,
-    margin:10,
-    width:300,
-    borderRadius:10,},
-  reason : {
-    borderWidth:1,
-    borderColor:'#777',
+    borderColor:'#D4ECDD',
     padding:8,
     margin:10,
     width:300,
     borderRadius:10,
+  color:'#D4ECDD'},
+  reason : {
+    borderWidth:1,
+    borderColor:'#D4ECDD',
+    padding:8,
+    margin:10,
+    width:300,
+    borderRadius:10,
+    color:'#D4ECDD'
   },
     sid : {
     borderWidth:1,
-    borderColor:'#777',
+    borderColor:'#D4ECDD',
     padding:8,
     margin:10,
     width:300,
     borderRadius:10,
-    
+    color:'#D4ECDD'
   },
   fixToText:{
     width: 90,
@@ -158,12 +195,54 @@ const styles = StyleSheet.create({
     marginLeft: 110,
   },
   Main1:{
-  width:100,
+    justifyContent:'center',
+    alignItems:'center',
+    borderColor:'#D4ECDD',
+    borderRadius:5,
+margin: 20 ,
+    backgroundColor:'#152D35',
+    width:320,
+height:60,
+shadowColor:'black',
+elevation:10,
+shadowOpacity:5,
+borderWidth:0.5,
+
+
+    
 
   },
   Main2:{
-  width:100,
+  justifyContent:'center',
+  alignItems:'center',
+  borderRadius:5,
+margin: 20 ,
+height:60,
+    backgroundColor:'#152D35',
+width:320,
+shadowColor:'black',
+elevation:10,
+shadowOpacity:5,
+borderWidth:0.5,
+borderColor:'#D4ECDD',
 
+
+
+  },
+  Idcard:{
+    backgroundColor:'#152D35',
+    width:320,
+    height:170,
+    borderRadius:20,
+    margin:10,
+    // justifyContent:'center',
+    borderColor:'#D4ECDD',
+    // alignItems:'center',
+    shadowColor:'black',
+elevation:10,
+shadowOpacity:5,
+borderWidth:0.5,
+padding:10
   }
   }
 )
