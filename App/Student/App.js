@@ -26,6 +26,38 @@ function HomeScreen(props) {
   );
 }
 
+function Login(props){
+  const [sid,setsid] = useState('22106023');
+  const [password,setPassword] = useState('Password');
+  
+
+
+  return(
+      <View style={styles.login}>
+        <Text style={{fontSize: 54,color:'#D4ECDD'}}>Login</Text>
+        <TextInput style={styles.input}
+        keyboardType='numeric'
+        placeholder='SID'
+        placeholderTextColor={'#D4ECDD'}
+        onChangeText={(val)=>setsid(val)}/>
+
+        <TextInput style={styles.input}
+        // keyboardType='password'
+        placeholder='Enter Password'
+        placeholderTextColor={'#D4ECDD'}
+        onChangeText={(val)=>setPassword(val)}/>
+
+        <TouchableOpacity style={styles.loginbutton} onPress={()=>props.navigation.navigate('Dormsavior')}>
+        <Text style={{fontSize: 24,color:'#D4ECDD'}}>Submit</Text>
+      </TouchableOpacity>
+      </View>
+
+      
+
+
+  );
+}
+
 //Form for leave
 function Form() {
   const [name,setName] = useState('Yashaswi');
@@ -38,6 +70,7 @@ function Form() {
   const [AVP,setavp] = useState('AVP');
   const [PMN,setpmn] = useState('9815494849');
   const [Date,setdate] = useState('dd/mm/yyyy');
+  const [password,setPassword] = useState('Password');
 
 
     return (
@@ -97,14 +130,10 @@ function Form() {
         onChangeText={(val10)=>setdate(val10)}/>
 
         <TextInput style={styles.input}
-        placeholder='OTP'
+        placeholder='Password'
         placeholderTextColor={'#D4ECDD'}
-        onChangeText={(val)=>setName(val)}/>
+        onChangeText={(val)=>setPassword(val)}/>
         <View style={styles.fixToText}>
-          {/* <Button
-          title="Submit"
-          onPress={() => Alert.alert('Your form has been submitted and is under process')}
-          color={'#152D35'} */}
           <TouchableOpacity style={{
             justifyContent:'center',
             alignItems:'center',
@@ -139,9 +168,8 @@ function App() {
       },
       headerTintColor:'#D4ECDD'
         }} >
-        <Stack.Screen name="Dormsavior" component={HomeScreen}
-        
-          />
+          <Stack.Screen name='Login' component={Login}/>
+        <Stack.Screen name="Dormsavior" component={HomeScreen}/>
         <Stack.Screen name="Form" component={Form} />
       </Stack.Navigator>
     </NavigationContainer>
@@ -243,6 +271,24 @@ elevation:10,
 shadowOpacity:5,
 borderWidth:0.5,
 padding:10
+  },
+  login:{
+    flex:1,
+    backgroundColor:'#152D35',
+    alignItems:'center',
+    justifyContent:'center',
+    borderWidth:2,
+    borderColor:'#D4ECDD',
+    borderRadius:10,
+    margin:10,
+
+  },
+  loginbutton:{
+    borderWidth:2,
+    borderColor:'#D4ECDD',
+    borderRadius:10,
+    margin:10,
+    padding:10,
   }
   }
 )
